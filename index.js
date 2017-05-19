@@ -43,6 +43,7 @@ module.exports = function (config, windowParams) {
       });
 
       function onCallback(url) {
+        if (!url.startsWith(config.redirectUri)) return;
         var url_parts = nodeUrl.parse(url, true);
         var query = url_parts.query;
         var code = query.code;
